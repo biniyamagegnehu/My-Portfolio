@@ -4,7 +4,7 @@
 
 body {
     font-size: 1rem;
-    background-color: rgb(12, 11, 11);
+    background-color: rgba(12, 11, 11, 0.934);
     color: white;
 }
 
@@ -117,7 +117,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 110px 20px;
+    padding: 115px 20px;
 }
 
 .frontend {
@@ -170,9 +170,8 @@ body {
     align-items: center;
     justify-content: center;
     padding: 20px;
-    background-color: rgba(128, 128, 128, 0.155);
-    bottom: 0;
+    background-color: black;
+    position: absolute;
     left: 0;
-    margin: 0;
-    width: 100%;
+    right: 0;
 }
