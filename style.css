@@ -4,7 +4,7 @@
 
 body {
     font-size: 1rem;
-    background-color: rgb(16, 6, 6);
+    background-color: rgb(12, 11, 11);
     color: white;
 }
 
@@ -32,7 +32,8 @@ body {
 
 .home {
     padding: 60px;
-    padding-top: 115px;
+    padding-top: 120px;
+    margin-top: 20px;
     display: flex;
     justify-content: space-between;
 }
@@ -92,10 +93,18 @@ body {
     margin: 30px;
 }
 
+.skills img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+
 .python, .cpp, .html, .css, .js, .java {
-    padding: 30px;
-    margin: 30px;
-    box-shadow: 0px 0px 15px white;
+    padding:25px;
+    margin: 20px;
+    /* box-shadow: 0px 0px 15px white; */
+    background-color: rgba(128, 128, 128, 0.235);
+    border-radius: 20px;
 } 
 
 .python p, .cpp p, .html p, .css p, .jsp , .java p{
@@ -154,4 +163,16 @@ body {
     font-weight: bolder;
     box-shadow: 0px 0px 0px white;
     border-radius: 25px;
+}
+
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-color: rgba(128, 128, 128, 0.155);
+    bottom: 0;
+    left: 0;
+    margin: 0;
+    width: 100%;
 }
