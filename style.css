@@ -82,8 +82,8 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 20px;
-    padding-top: 115px;
+    padding: 110px 20px;
+    
 }
 
 .skills {
@@ -103,3 +103,55 @@ body {
     padding-bottom: 20px;
    
 } 
+
+.myservices {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 110px 20px;
+}
+
+.frontend {
+    padding: 20px;
+    margin: 15px;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0px 0px 15px white;
+}
+
+.contactme {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 115px 20px;
+}
+
+.inputs {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    margin: 10px;
+}
+
+.inputs input ,textarea{
+    padding: 10px;
+    margin: 20px;
+    background-color: rgb(22, 19, 19);
+    box-shadow: 0px 0px 8px white;
+    color: white;
+    font-size: larger;
+}
+
+.inputs input:last-child {
+    background-color: green;
+    color: white;
+    font-size: larger;
+    font-weight: bolder;
+    box-shadow: 0px 0px 0px white;
+    border-radius: 25px;
+}
