@@ -64,6 +64,7 @@ body {
     justify-content: center;
     margin: 30px;
     padding: 60px;
+    padding-top: 115px;
 }
 
 .aboutme .description {
@@ -78,5 +79,27 @@ body {
 
 .myskills {
     display: flex;
-    padding: 50px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    padding-top: 115px;
 }
+
+.skills {
+    display: flex;
+    padding: 10px ;
+    margin: 30px;
+}
+
+.python, .cpp, .html, .css, .js, .java {
+    padding: 30px;
+    margin: 30px;
+    box-shadow: 0px 0px 15px white;
+} 
+
+.python p, .cpp p, .html p, .css p, .jsp , .java p{
+    padding: 10px;
+    padding-bottom: 20px;
+   
+} 
