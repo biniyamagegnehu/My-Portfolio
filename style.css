@@ -30,6 +30,10 @@ body {
     margin: 10px;
 }
 
+.navbar a:active {
+    color: green;
+}
+
 .home {
     padding: 60px;
     padding-top: 120px;
@@ -90,11 +94,11 @@ body {
 .skills {
     display: flex;
     padding: 10px ;
-    margin: 30px;
+    margin: 30px 15px;
 }
 
 .skills img {
-    width: 200px;
+    width: 150px;
     height: 200px;
     border-radius: 50%;
 }
@@ -102,7 +106,7 @@ body {
 .python, .cpp, .html, .css, .js, .java {
     padding:25px;
     margin: 20px;
-    /* box-shadow: 0px 0px 15px white; */
+    box-shadow: 0px 0px 15px white;
     background-color: rgba(128, 128, 128, 0.235);
     border-radius: 20px;
 } 
@@ -111,6 +115,13 @@ body {
     padding: 10px;
     padding-bottom: 20px;
    
+} 
+
+.python:hover, .cpp:hover, .html:hover, .css:hover, .js:hover, .java:hover, .frontend:hover {
+    box-shadow: 0px 0px 5px white;
+    background-color: rgba(51, 62, 54, 0.235);
+    border: solid 3px green;
+
 } 
 
 .myservices {
