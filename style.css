@@ -23,15 +23,22 @@ body {
     padding-top: 10px;
 }
 
-.navbar a {
+.navbar a{
     text-decoration: none;
     color: white;
     padding: 15px;
     margin: 10px;
+    transition: transform 0.3s ease;
+    border-radius: 20px;
 }
 
 .navbar a:active {
     color: green;
+}
+
+.navbar a:hover {
+    background: white;
+    color: black;
 }
 
 .home {
@@ -109,6 +116,7 @@ body {
     box-shadow: 0px 0px 15px white;
     background-color: rgba(128, 128, 128, 0.235);
     border-radius: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 } 
 
 .python p, .cpp p, .html p, .css p, .jsp , .java p{
@@ -117,12 +125,37 @@ body {
    
 } 
 
-.python:hover, .cpp:hover, .html:hover, .css:hover, .js:hover, .java:hover, .frontend:hover {
+.python:hover, .cpp:hover, .html:hover, .css:hover, .js:hover, .java:hover, .frontend:hover ,.udacity:hover{
     box-shadow: 0px 0px 5px white;
     background-color: rgba(51, 62, 54, 0.235);
     border: solid 3px green;
+    transform: scale(1.1);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 
 } 
+
+.certificates {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 115px 20px;
+}
+
+.certificate h1{
+    
+}
+
+.udacity {
+    width: fit-content;
+    padding: 20px;
+    margin: 15px;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0px 0px 15px white;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
 .myservices {
     display: flex;
@@ -139,6 +172,7 @@ body {
     flex-direction: column;
     align-items: center;
     box-shadow: 0px 0px 15px white;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .contactme {
