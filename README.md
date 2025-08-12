@@ -40,11 +40,11 @@ Check out the live portfolio here:
 
 ### [TechCompass E-Learning Website](https://tech-compass.netlify.app)
 - An e-learning platform built with **React** and **Tailwind CSS**, designed to help beginners learn programming concepts.
-- [View Code](https://github.com/…) (link to GitHub repo)
+- [View Code]([https://github.com/…](https://github.com/biniyamagegnehu/TechCompass-E-learning-website)) (link to GitHub repo)
 
 ### [Transportation Schedule & Booking Website](https://winnergoo.netlify.app)
 - A responsive booking system created with **HTML**, **CSS**, **JavaScript**, and **Bootstrap**.
-- [View Code](https://github.com/…) (link to GitHub repo)
+- [View Code]([https://github.com/…](https://github.com/biniyamagegnehu/TransportationScheduleAndBooking)) (link to GitHub repo)
 
 ---
 
