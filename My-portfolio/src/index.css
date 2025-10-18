@@ -1,32 +1,44 @@
 @import "tailwindcss";
 
 :root {
-  --primary: #1E3A8A;
-  --secondary: #F59E0B;
-  --accent: #10B981;
-  --background: #F9FAFB;
-  --text: #111827;
-  --neutral: #6B7280;
-  --white: #FFFFFF;
-  --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  /* Light Mode Default Colors */
+  --bg-primary: #F9FAFB;
+  --bg-secondary: #FFFFFF;
+  --text-primary: #111827;
+  --text-secondary: #6B7280;
+  --accent-primary: #1E3A8A;
+  --accent-secondary: #F59E0B;
+  --accent-tertiary: #10B981;
+  --border-color: #E5E7EB;
+  --shadow-color: rgba(0, 0, 0, 0.1);
 }
 
-/* Dark Mode Colors */
 .dark {
-  --background: #0F0F1A;
-  --primary: #00FFFF;
-  --secondary: #FF00FF;
-  --text: #EAEAEA;
-  --accent: #00FF9D;
+  /* Dark Mode Colors */
+  --bg-primary: #111827;
+  --bg-secondary: #1F2937;
+  --text-primary: #F9FAFB;
+  --text-secondary: #9CA3AF;
+  --accent-primary: #3B82F6;
+  --accent-secondary: #FBBF24;
+  --accent-tertiary: #34D399;
+  --border-color: #374151;
+  --shadow-color: rgba(0, 0, 0, 0.3);
 }
 
-/* Light Mode Colors */
-.light {
-  --background: #F8FAFC;
-  --primary: #2563EB;
-  --secondary: #9333EA;
-  --text: #1E293B;
-  --accent: #14B8A6;
+/* Apply theme colors */
+html {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Custom animations */
@@ -36,8 +48,8 @@
 }
 
 @keyframes glow {
-  0% { box-shadow: 0 0 5px #00FFFF, 0 0 10px #00FFFF, 0 0 15px #00FFFF; }
-  100% { box-shadow: 0 0 10px #00FFFF, 0 0 20px #00FFFF, 0 0 30px #00FFFF; }
+  0% { box-shadow: 0 0 5px var(--accent-primary), 0 0 10px var(--accent-primary), 0 0 15px var(--accent-primary); }
+  100% { box-shadow: 0 0 10px var(--accent-primary), 0 0 20px var(--accent-primary), 0 0 30px var(--accent-primary); }
 }
 
 .animate-float {
@@ -50,7 +62,10 @@
 
 /* Smooth transitions */
 * {
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: background-color 0.3s ease, 
+              color 0.3s ease, 
+              border-color 0.3s ease,
+              box-shadow 0.3s ease;
 }
 
 /* Custom scrollbar */
@@ -59,14 +74,14 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--background);
+  background: var(--bg-primary);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--primary);
+  background: var(--accent-primary);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--secondary);
+  background: var(--accent-secondary);
 }
