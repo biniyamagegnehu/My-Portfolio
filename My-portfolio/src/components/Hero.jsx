@@ -1,8 +1,11 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import ThreeScene from './ThreeScene'
+import { useTheme } from '../hooks/useTheme'
+import FuturisticBackground from './FuturisticBackground'
 
 const Hero = () => {
+  const { isDark } = useTheme()
+
   const socialLinks = [
     { name: 'GitHub', url: 'https://github.com/biniyamagegnehu', icon: 'fab fa-github' },
     { name: 'Instagram', url: 'https://www.instagram.com/biniyamagegnehu', icon: 'fab fa-instagram' },
@@ -14,171 +17,298 @@ const Hero = () => {
     document.querySelector('#contact').scrollIntoView({ behavior: 'smooth' })
   }
 
+  // Animation variants
+  const staggerContainer = {
+    animate: {
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  }
+
+  const fadeInUp = {
+    initial: { y: 20, opacity: 0 },
+    animate: { y: 0, opacity: 1, transition: { duration: 0.6 } }
+  }
+
+  const scaleIn = {
+    initial: { scale: 0.9, opacity: 0 },
+    animate: { scale: 1, opacity: 1, transition: { duration: 0.5 } }
+  }
+
   return (
-    <section id="home" className="min-h-screen relative overflow-hidden" style={{
-      background: 'linear-gradient(135deg, var(--accent-primary) 0%, var(--bg-primary) 100%)'
-    }}>
-      {/* 3D Background */}
-      <div className="absolute inset-0 z-0">
-        <ThreeScene />
-      </div>
+    <section id="home" className="min-h-screen relative overflow-hidden flex items-center justify-center py-10">
+      {/* Futuristic Background */}
+      <FuturisticBackground />
       
-      {/* Content */}
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="min-h-screen flex items-center">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Text Content */}
+      {/* Main Content Container */}
+      <div className="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+          
+          {/* Left Content - Text Section */}
+          <motion.div 
+            className="space-y-6 lg:space-y-8 text-center lg:text-left"
+            variants={staggerContainer}
+            initial="initial"
+            animate="animate"
+          >
+            {/* Greeting */}
             <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              className="text-center lg:text-left"
+              variants={fadeInUp}
+              className="flex items-center justify-center lg:justify-start gap-3"
             >
-              <motion.h3
-                className="text-lg md:text-xl mb-4 font-semibold"
+              <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse mt-15
+              " />
+              <span 
+                className="text-xl font-medium tracking-wider uppercase pt-15"
                 style={{ color: 'var(--accent-primary)' }}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.2 }}
               >
                 Hello, I'm
-              </motion.h3>
-              
-              <motion.h1
-                className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4"
+              </span>
+            </motion.div>
+
+            {/* Main Name */}
+            <div className="space-y-2">
+              <motion.h1 
+                variants={fadeInUp}
+                className="text-4xl sm:text-5xl md:text-6xl font-bold"
                 style={{ color: 'var(--text-primary)' }}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4 }}
               >
-                Biniyam <span style={{ color: 'var(--accent-primary)' }}>Agegnehu</span>
+                Biniyam
               </motion.h1>
               
-              <motion.h2
-                className="text-2xl md:text-3xl mb-6 font-semibold"
+              <motion.h1
+                variants={scaleIn}
+                className="text-3xl sm:text-4xl md:text-5xl font-bold"
+                style={{ 
+                  background: 'linear-gradient(135deg, var(--accent-primary), var(--accent-secondary))',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text'
+                }}
+              >
+                Agegnehu
+              </motion.h1>
+            </div>
+
+            {/* Title */}
+            <motion.div
+              variants={fadeInUp}
+              className="flex items-center justify-center lg:justify-start gap-3"
+            >
+              <div className="w-1 h-8 rounded-full" style={{ backgroundColor: 'var(--accent-primary)' }} />
+              <h2 
+                className="text-lg sm:text-xl font-semibold"
                 style={{ color: 'var(--accent-secondary)' }}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.6 }}
               >
                 Frontend Developer
-              </motion.h2>
-              
-              <motion.p
-                className="text-lg mb-8 max-w-2xl leading-relaxed"
+              </h2>
+            </motion.div>
+
+            {/* Description */}
+            <motion.div
+              variants={fadeInUp}
+              className="max-w-md mx-auto lg:mx-0"
+            >
+              <p 
+                className="text-base sm:text-lg leading-relaxed"
                 style={{ color: 'var(--text-secondary)' }}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.8 }}
               >
-                Creating beautiful, responsive websites with modern technologies and cutting-edge 3D animations.
-              </motion.p>
+                I create <span style={{ color: 'var(--accent-primary)', fontWeight: '500' }}>modern web experiences</span> 
+                {" "}and <span style={{ color: 'var(--accent-secondary)', fontWeight: '500' }}>responsive solutions</span> 
+                {" "}using cutting-edge technologies.
+              </p>
+            </motion.div>
 
-              {/* Social Links */}
-              <motion.div
-                className="flex justify-center lg:justify-start space-x-6 mb-8"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 1 }}
-              >
-                {socialLinks.map((social, index) => (
-                  <motion.a
-                    key={social.name}
-                    href={social.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 shadow-lg"
-                    style={{ 
-                      backgroundColor: 'var(--accent-primary)',
-                      color: 'white'
-                    }}
-                    whileHover={{ 
-                      y: -5, 
-                      scale: 1.1,
-                      backgroundColor: 'var(--accent-secondary)'
-                    }}
-                    whileTap={{ scale: 0.9 }}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 1 + index * 0.1 }}
-                  >
-                    <i className={social.icon}></i>
-                  </motion.a>
-                ))}
-              </motion.div>
-
-              {/* CTA Button */}
+            {/* CTA Buttons */}
+            <motion.div
+              variants={fadeInUp}
+              className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start"
+            >
               <motion.button
                 onClick={scrollToContact}
-                className="px-8 py-4 rounded-full font-semibold transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
+                className="px-6 py-3 rounded-lg font-semibold text-sm sm:text-base relative overflow-hidden group"
                 style={{ 
                   backgroundColor: 'var(--accent-primary)',
                   color: 'white'
                 }}
-                whileHover={{ 
-                  y: -2,
-                  backgroundColor: 'var(--accent-secondary)'
-                }}
-                whileTap={{ y: 0 }}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 1.2 }}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
               >
-                Get In Touch
+                <span className="relative z-10">Get In Touch</span>
               </motion.button>
+              
+              <motion.a
+                href="#projects"
+                className="px-6 py-3 rounded-lg font-semibold text-sm sm:text-base border text-center"
+                style={{ 
+                  borderColor: 'var(--accent-primary)',
+                  color: 'var(--accent-primary)'
+                }}
+                whileHover={{ 
+                  scale: 1.02,
+                  backgroundColor: 'var(--accent-primary)',
+                  color: 'white'
+                }}
+                whileTap={{ scale: 0.98 }}
+              >
+                View Work
+              </motion.a>
             </motion.div>
 
-            {/* Image/3D Model */}
+            {/* Social Links */}
             <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="relative"
+              variants={fadeInUp}
+              className="flex justify-center lg:justify-start gap-4 pt-4"
             >
-              <div className="relative w-80 h-80 lg:w-96 lg:h-96 mx-auto">
-                <motion.img
+              {socialLinks.map((social, index) => (
+                <motion.a
+                  key={social.name}
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 rounded-lg flex items-center justify-center"
+                  style={{ 
+                    backgroundColor: 'var(--bg-secondary)',
+                    border: '1px solid var(--border-color)'
+                  }}
+                  whileHover={{ 
+                    scale: 1.1,
+                    backgroundColor: 'var(--accent-primary)'
+                  }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <i 
+                    className={`${social.icon} text-sm`}
+                    style={{ color: 'var(--accent-primary)' }}
+                  />
+                </motion.a>
+              ))}
+            </motion.div>
+          </motion.div>
+
+          {/* Right Content - Visual Section */}
+          <motion.div 
+            className="relative"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.7, delay: 0.3 }}
+          >
+            {/* Main Image Container */}
+            <div className="relative w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 mx-auto">
+              
+              {/* Outer Glow */}
+              <motion.div
+                className="absolute inset-0 rounded-2xl blur-lg opacity-30"
+                style={{ backgroundColor: 'var(--accent-primary)' }}
+                animate={{
+                  scale: [1, 1.02, 1],
+                  opacity: [0.2, 0.4, 0.2],
+                }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                }}
+              />
+              
+              {/* Main Image */}
+              <motion.div
+                className="relative w-full h-full rounded-2xl overflow-hidden border-2"
+                style={{ 
+                  borderColor: 'var(--accent-primary)',
+                  backgroundColor: 'var(--bg-secondary)'
+                }}
+                whileHover={{ scale: 1.01 }}
+              >
+                <img
                   src="/images/portfolio-image.png"
                   alt="Biniyam Agegnehu"
-                  className="w-full h-full object-cover rounded-2xl shadow-2xl"
-                  style={{ border: '4px solid var(--accent-primary)' }}
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ type: "spring", stiffness: 300 }}
+                  className="w-full h-full object-cover"
                 />
-                {/* Floating elements */}
-                <motion.div
-                  className="absolute -top-4 -right-4 w-8 h-8 rounded-full"
-                  style={{ backgroundColor: 'var(--accent-tertiary)' }}
-                  animate={{ y: [0, -10, 0] }}
-                  transition={{ duration: 2, repeat: Infinity }}
-                />
-                <motion.div
-                  className="absolute -bottom-4 -left-4 w-6 h-6 rounded-full"
-                  style={{ backgroundColor: 'var(--accent-secondary)' }}
-                  animate={{ y: [0, 10, 0] }}
-                  transition={{ duration: 2, repeat: Infinity, delay: 1 }}
-                />
+              </motion.div>
+
+              {/* Floating Elements */}
+              <motion.div
+                className="absolute -top-4 -right-4 w-8 h-8 rounded-lg flex items-center justify-center text-sm"
+                style={{ backgroundColor: 'var(--accent-tertiary)' }}
+                animate={{ 
+                  y: [0, -8, 0],
+                }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                }}
+              >
+                ⚡
+              </motion.div>
+
+              <motion.div
+                className="absolute -bottom-4 -left-4 w-7 h-7 rounded-lg flex items-center justify-center text-sm"
+                style={{ backgroundColor: 'var(--accent-secondary)' }}
+                animate={{ 
+                  y: [0, 8, 0],
+                }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  delay: 1
+                }}
+              >
+                🚀
+              </motion.div>
+            </div>
+
+            {/* Stats Bar */}
+            <motion.div
+              className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 w-56 backdrop-blur-sm rounded-xl p-3 border"
+              style={{
+                backgroundColor: 'var(--bg-secondary)',
+                borderColor: 'var(--border-color)'
+              }}
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.8 }}
+            >
+              <div className="grid grid-cols-3 gap-3 text-center">
+                <div>
+                  <div className="text-lg font-bold" style={{ color: 'var(--accent-primary)' }}>2+</div>
+                  <div className="text-xs" style={{ color: 'var(--text-secondary)' }}>Years</div>
+                </div>
+                <div>
+                  <div className="text-lg font-bold" style={{ color: 'var(--accent-secondary)' }}>15+</div>
+                  <div className="text-xs" style={{ color: 'var(--text-secondary)' }}>Projects</div>
+                </div>
+                <div>
+                  <div className="text-lg font-bold" style={{ color: 'var(--accent-tertiary)' }}>10+</div>
+                  <div className="text-xs" style={{ color: 'var(--text-secondary)' }}>Skills</div>
+                </div>
               </div>
             </motion.div>
-          </div>
+          </motion.div>
         </div>
       </div>
 
       {/* Scroll Indicator */}
       <motion.div
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-        animate={{ y: [0, 10, 0] }}
+        className="absolute bottom-4 left-1/2 transform -translate-x-1/2"
+        animate={{ y: [0, 5, 0] }}
         transition={{ duration: 2, repeat: Infinity }}
       >
-        <div 
-          className="w-6 h-10 rounded-full flex justify-center"
-          style={{ border: '2px solid var(--accent-primary)' }}
-        >
-          <motion.div
-            className="w-1 h-3 rounded-full mt-2"
-            style={{ backgroundColor: 'var(--accent-primary)' }}
-            animate={{ y: [0, 12, 0] }}
-            transition={{ duration: 2, repeat: Infinity }}
-          />
+        <div className="flex flex-col items-center space-y-1">
+          <span className="text-xs" style={{ color: 'var(--text-secondary)' }}>
+            Scroll down
+          </span>
+          <div 
+            className="w-4 h-6 rounded-full flex justify-center border"
+            style={{ borderColor: 'var(--accent-primary)' }}
+          >
+            <motion.div
+              className="w-1 h-2 rounded-full mt-1"
+              style={{ backgroundColor: 'var(--accent-primary)' }}
+              animate={{ y: [0, 8, 0] }}
+              transition={{ duration: 2, repeat: Infinity }}
+            />
+          </div>
         </div>
       </motion.div>
     </section>

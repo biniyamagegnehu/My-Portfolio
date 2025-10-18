@@ -85,3 +85,67 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--accent-secondary);
 }
+
+/* Grid Movement Animation */
+@keyframes gridMove {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(50px, 50px);
+  }
+}
+
+/* Pulse Glow Animation */
+@keyframes pulseGlow {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.1;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.2;
+  }
+}
+
+/* Scan Line Animation */
+.scan-line {
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    var(--accent-secondary) 50%,
+    transparent 100%
+  );
+  animation: scan 2s linear infinite;
+}
+
+@keyframes scan {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+/* Text Gradient Animation */
+.animated-gradient {
+  background: linear-gradient(
+    45deg,
+    var(--accent-primary),
+    var(--accent-secondary),
+    var(--accent-tertiary),
+    var(--accent-primary)
+  );
+  background-size: 400% 400%;
+  animation: gradientShift 8s ease infinite;
+}
+
+@keyframes gradientShift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
