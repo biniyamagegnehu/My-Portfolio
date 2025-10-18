@@ -57,18 +57,16 @@ const About = () => {
             </h3>
             
             <p className="text-lg leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-              I'm a second year software engineering student and frontend web developer. I'm deeply passionate 
-              about coding and creating digital solutions that make an impact.
+            I'm Biniyam Agegnehu, a dedicated Full-Stack Developer with a passion for building seamless and efficient web applications.
             </p>
             
             <p className="text-lg leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-              This portfolio showcases my programming skills, projects, and the services I offer. I'm constantly 
-              learning and expanding my skill set to stay at the forefront of web development technologies.
+             My mission: To build web solutions that are not only technically strong but also delightful to use.
             </p>
 
             {/* Tech Stack Icons */}
             <div className="flex flex-wrap gap-4 mt-8">
-              {['React', 'JavaScript', 'Tailwind', 'Three.js', 'Node.js'].map((tech, index) => (
+              {['React', 'JavaScript', 'Tailwind', 'Node.js','Express js'].map((tech, index) => (
                 <motion.div
                   key={tech}
                   className="px-4 py-2 rounded-full font-semibold"

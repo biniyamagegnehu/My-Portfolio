@@ -101,7 +101,7 @@ const Hero = () => {
                 className="text-lg sm:text-xl font-semibold"
                 style={{ color: 'var(--accent-secondary)' }}
               >
-                Frontend Developer
+                Fullstack Developer
               </h2>
             </motion.div>
 
@@ -114,9 +114,9 @@ const Hero = () => {
                 className="text-base sm:text-lg leading-relaxed"
                 style={{ color: 'var(--text-secondary)' }}
               >
-                I create <span style={{ color: 'var(--accent-primary)', fontWeight: '500' }}>modern web experiences</span> 
+                I build <span style={{ color: 'var(--accent-primary)', fontWeight: '500' }}>modern web experiences</span> 
                 {" "}and <span style={{ color: 'var(--accent-secondary)', fontWeight: '500' }}>responsive solutions</span> 
-                {" "}using cutting-edge technologies.
+                {" "}using modern technologies.
               </p>
             </motion.div>
 
@@ -275,7 +275,7 @@ const Hero = () => {
                   <div className="text-xs" style={{ color: 'var(--text-secondary)' }}>Years</div>
                 </div>
                 <div>
-                  <div className="text-lg font-bold" style={{ color: 'var(--accent-secondary)' }}>15+</div>
+                  <div className="text-lg font-bold" style={{ color: 'var(--accent-secondary)' }}>5+</div>
                   <div className="text-xs" style={{ color: 'var(--text-secondary)' }}>Projects</div>
                 </div>
                 <div>
