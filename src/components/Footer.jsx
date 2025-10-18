@@ -91,19 +91,6 @@ const Footer = () => {
             ))}
           </motion.div>
         </div>
-
-        {/* Made with love */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.6 }}
-          viewport={{ once: true }}
-          className="text-center mt-8 pt-8 border-t border-white/20"
-        >
-          <p className="text-white/80">
-            Made with <span className="text-red-400">❤</span> using React & Tailwind CSS
-          </p>
-        </motion.div>
       </div>
     </footer>
   )
