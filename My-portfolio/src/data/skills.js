@@ -50,6 +50,18 @@ export const skills = {
       icon: "fab fa-bootstrap",
       level: 80,
       description: "Experience building responsive websites using Bootstrap's grid system and components."
+    },
+    {
+      name: "Node.js",
+      icon: "fab fa-node-js",
+      level: 75,
+      description: "Server-side JavaScript runtime for building scalable network applications and APIs."
+    },
+    {
+      name: "Express.js",
+      icon: "fas fa-server",
+      level: 70,
+      description: "Minimal and flexible Node.js web application framework for building robust APIs."
     }
   ],
   tools: [
@@ -66,10 +78,40 @@ export const skills = {
       description: "Relational database design, query optimization, and data modeling."
     },
     {
+      name: "MongoDB",
+      icon: "fas fa-database",
+      level: 70,
+      description: "NoSQL database for modern web applications with flexible document storage."
+    },
+    {
       name: "Netlify",
       icon: "fas fa-cloud-upload-alt",
       level: 75,
       description: "Static site deployment, serverless functions, and continuous integration."
+    },
+    {
+      name: "Figma",
+      icon: "fab fa-figma",
+      level: 65,
+      description: "Collaborative design tool for creating prototypes, wireframes, and UI designs."
+    },
+    {
+      name: "Postman",
+      icon: "fas fa-code",
+      level: 80,
+      description: "API development and testing platform for building and testing REST APIs."
+    },
+    {
+      name: "Vercel",
+      icon: "fas fa-rocket",
+      level: 70,
+      description: "Cloud platform for static sites and serverless functions with seamless deployment."
+    },
+    {
+      name: "Render",
+      icon: "fas fa-cloud",
+      level: 65,
+      description: "Cloud platform for deploying full-stack applications and web services."
     }
   ]
 }
