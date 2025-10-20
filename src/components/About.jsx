@@ -32,7 +32,7 @@ const About = () => {
           >
             <div className="relative w-80 h-80 lg:w-96 lg:h-96 mx-auto">
               <img
-                src="/images/portfolio-image.png"
+                src="/images/portfolio.png"
                 alt="About Me"
                 className="w-full h-full object-cover rounded-2xl shadow-2xl"
                 style={{ border: '4px solid var(--accent-primary)' }}
@@ -53,7 +53,7 @@ const About = () => {
             className="space-y-6"
           >
             <h3 className="text-2xl md:text-3xl font-bold mb-4" style={{ color: 'var(--accent-primary)' }}>
-              Frontend Developer
+              Fullstack Developer
             </h3>
             
             <p className="text-lg leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
