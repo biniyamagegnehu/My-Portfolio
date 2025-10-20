@@ -3,7 +3,7 @@
 A modern, responsive **portfolio website** showcasing my skills, projects, and experience as a **Frontend Developer**.  
 Built with **React**, **Tailwind CSS**, and featuring **stunning animations**, **3D effects**, and **dark/light mode** functionality.
 
-![Portfolio Preview](/images/readme.png)
+![Portfolio Preview](images/readme.png)
 
 ---
 
