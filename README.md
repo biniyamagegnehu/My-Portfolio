@@ -1,16 +1,63 @@
-# React + Vite
+# 🌟 Biniyam Agegnehu - Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive **portfolio website** showcasing my skills, projects, and experience as a **Frontend Developer**.  
+Built with **React**, **Tailwind CSS**, and featuring **stunning animations**, **3D effects**, and **dark/light mode** functionality.
 
-Currently, two official plugins are available:
+![Portfolio Preview](readme.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## 🎯 Purpose
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+This portfolio website serves as my **digital identity** and professional showcase, designed to:
 
-## Expanding the ESLint configuration
+- 💻 Display my technical skills and projects  
+- ⚙️ Demonstrate modern web development capabilities  
+- 🤝 Connect with potential clients and employers  
+- 📱 Showcase responsive design and user experience skills  
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🚀 Live Demo
+
+🔗 **Visit the live website:** [biniyamagegnehu.netlify.app](https://biniyamagegnehu.netlify.app)
+
+---
+
+## ✨ Features
+
+- 🎨 **Modern Design** – Clean, professional layout with beautiful gradients  
+- 🌙 **Dark/Light Mode** – Toggle between themes with persistent preferences  
+- 📱 **Fully Responsive** – Optimized for all devices and screen sizes  
+- ⚡ **Fast Performance** – Built with **Vite** for optimal loading speeds  
+- 🎬 **Smooth Animations** – Engaging transitions using **Framer Motion**  
+- 🔒 **Secure Contact Form** – **Netlify Forms** integration with spam protection  
+- 🪄 **3D Elements** – Interactive background using **Three.js**
+
+---
+
+## 🛠 Tech Stack
+
+### **Frontend**
+- ⚛️ [React 18](https://react.dev/) – Modern React with hooks  
+- 🎨 [Tailwind CSS](https://tailwindcss.com/) – Utility-first CSS framework  
+- 🎞 [Framer Motion](https://www.framer.com/motion/) – Smooth animations  
+- 🧊 [React Three Fiber](https://docs.pmnd.rs/react-three-fiber/getting-started/introduction) – 3D graphics and animations  
+
+### **Development & Deployment**
+- ⚡ [Vite](https://vitejs.dev/) – Fast build tool and dev server  
+- ☁️ [Netlify](https://www.netlify.com/) – Hosting and form handling  
+- 🧭 [Git](https://git-scm.com/) – Version control  
+
+---
+
+## 📋 Sections
+
+- 🦸‍♂️ **Hero** – Introduction with animated background  
+- 👨‍💻 **About** – Personal background and information  
+- 🧠 **Skills** – Technical skills with progress indicators  
+- 🧰 **Projects** – Portfolio projects with live demos  
+- 🏅 **Certificates** – Achievements and certifications  
+- 💼 **Services** – Offered development services  
+- ✉️ **Contact** – Contact form and information  
+
