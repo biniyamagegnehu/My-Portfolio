@@ -67,19 +67,65 @@ const Contact = () => {
     subject: '',
     message: ''
   })
+  
+  // State for form submission status
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState(null) // 'success' or 'error'
+  const [submitMessage, setSubmitMessage] = useState('')
 
   const handleChange = (e) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
     })
+    // Clear any previous submission status when user starts typing
+    if (submitStatus) {
+      setSubmitStatus(null)
+      setSubmitMessage('')
+    }
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    console.log('Form submitted:', formData)
-    alert('Thank you for your message! I will get back to you soon.')
-    setFormData({ name: '', email: '', subject: '', message: '' })
+    setIsSubmitting(true)
+    setSubmitStatus(null)
+    setSubmitMessage('')
+
+    try {
+      // Netlify forms work by submitting to the current URL
+      // The form-name attribute is crucial for Netlify to identify the form
+      const form = e.target
+      
+      // Create FormData object for submission
+      const formDataToSend = new FormData(form)
+      
+      // Netlify requires the form-name field
+      formDataToSend.append('form-name', 'contact')
+      
+      // Submit to Netlify
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formDataToSend).toString()
+      })
+
+      if (response.ok) {
+        setSubmitStatus('success')
+        setSubmitMessage('Thank you for your message! I will get back to you soon.')
+        setFormData({ name: '', email: '', subject: '', message: '' })
+        
+        // Reset form after successful submission
+        form.reset()
+      } else {
+        throw new Error('Form submission failed')
+      }
+    } catch (error) {
+      console.error('Form submission error:', error)
+      setSubmitStatus('error')
+      setSubmitMessage('Sorry, there was an error sending your message. Please try again or contact me directly via email.')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -178,11 +224,68 @@ const Contact = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <form onSubmit={handleSubmit} className="space-y-6">
+            {/* Netlify Form Submission Status Messages */}
+            {submitStatus === 'success' && (
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="mb-6 p-4 rounded-lg border"
+                style={{
+                  backgroundColor: 'var(--accent-tertiary)',
+                  borderColor: 'var(--accent-tertiary)',
+                  color: 'white'
+                }}
+              >
+                <div className="flex items-center space-x-2">
+                  <i className="fas fa-check-circle"></i>
+                  <span className="font-semibold">{submitMessage}</span>
+                </div>
+              </motion.div>
+            )}
+
+            {submitStatus === 'error' && (
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="mb-6 p-4 rounded-lg border"
+                style={{
+                  backgroundColor: '#FECACA',
+                  borderColor: '#F87171',
+                  color: '#DC2626'
+                }}
+              >
+                <div className="flex items-center space-x-2">
+                  <i className="fas fa-exclamation-circle"></i>
+                  <span className="font-semibold">{submitMessage}</span>
+                </div>
+              </motion.div>
+            )}
+
+            {/* 
+              NETLIFY FORM SETUP:
+              - form-name="contact" is REQUIRED for Netlify to recognize the form
+              - data-netlify="true" enables Netlify form handling
+              - netlify-honeypot adds spam protection
+              - action points to current page (Netlify will handle the rest)
+            */}
+            <form 
+              name="contact" 
+              method="POST" 
+              data-netlify="true"
+              data-netlify-honeypot="bot-field"
+              onSubmit={handleSubmit}
+              className="space-y-6"
+            >
+              {/* Hidden fields required by Netlify */}
+              <input type="hidden" name="form-name" value="contact" />
+              <div hidden>
+                <input name="bot-field" />
+              </div>
+
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium mb-2" style={{ color: 'var(--text-primary)' }}>
-                    Your Name
+                    Your Name *
                   </label>
                   <input
                     type="text"
@@ -191,7 +294,8 @@ const Contact = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 rounded-lg focus:ring-2 focus:border-transparent transition-all duration-300 resize-none"
+                    disabled={isSubmitting}
+                    className="w-full px-4 py-3 rounded-lg focus:ring-2 focus:border-transparent transition-all duration-300 resize-none disabled:opacity-50"
                     style={{
                       backgroundColor: 'var(--bg-secondary)',
                       border: '1px solid var(--border-color)',
@@ -202,7 +306,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium mb-2" style={{ color: 'var(--text-primary)' }}>
-                    Your Email
+                    Your Email *
                   </label>
                   <input
                     type="email"
@@ -211,7 +315,8 @@ const Contact = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 rounded-lg focus:ring-2 focus:border-transparent transition-all duration-300 resize-none"
+                    disabled={isSubmitting}
+                    className="w-full px-4 py-3 rounded-lg focus:ring-2 focus:border-transparent transition-all duration-300 resize-none disabled:opacity-50"
                     style={{
                       backgroundColor: 'var(--bg-secondary)',
                       border: '1px solid var(--border-color)',
@@ -224,7 +329,7 @@ const Contact = () => {
               
               <div>
                 <label htmlFor="subject" className="block text-sm font-medium mb-2" style={{ color: 'var(--text-primary)' }}>
-                  Subject
+                  Subject *
                 </label>
                 <input
                   type="text"
@@ -233,7 +338,8 @@ const Contact = () => {
                   value={formData.subject}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 rounded-lg focus:ring-2 focus:border-transparent transition-all duration-300 resize-none"
+                  disabled={isSubmitting}
+                  className="w-full px-4 py-3 rounded-lg focus:ring-2 focus:border-transparent transition-all duration-300 resize-none disabled:opacity-50"
                   style={{
                     backgroundColor: 'var(--bg-secondary)',
                     border: '1px solid var(--border-color)',
@@ -245,7 +351,7 @@ const Contact = () => {
               
               <div>
                 <label htmlFor="message" className="block text-sm font-medium mb-2" style={{ color: 'var(--text-primary)' }}>
-                  Message
+                  Message *
                 </label>
                 <textarea
                   id="message"
@@ -254,7 +360,8 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   rows="6"
-                  className="w-full px-4 py-3 rounded-lg focus:ring-2 focus:border-transparent transition-all duration-300 resize-none"
+                  disabled={isSubmitting}
+                  className="w-full px-4 py-3 rounded-lg focus:ring-2 focus:border-transparent transition-all duration-300 resize-none disabled:opacity-50"
                   style={{
                     backgroundColor: 'var(--bg-secondary)',
                     border: '1px solid var(--border-color)',
@@ -266,15 +373,28 @@ const Contact = () => {
               
               <motion.button
                 type="submit"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="w-full text-white py-4 px-8 rounded-lg font-semibold hover:shadow-xl transition-all duration-300"
+                disabled={isSubmitting}
+                whileHover={{ scale: isSubmitting ? 1 : 1.05 }}
+                whileTap={{ scale: isSubmitting ? 1 : 0.95 }}
+                className="w-full text-white py-4 px-8 rounded-lg font-semibold hover:shadow-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                 style={{
                   background: 'linear-gradient(135deg, var(--accent-primary), var(--accent-secondary))'
                 }}
               >
-                Send Message
+                {isSubmitting ? (
+                  <div className="flex items-center justify-center space-x-2">
+                    <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                    <span>Sending...</span>
+                  </div>
+                ) : (
+                  'Send Message'
+                )}
               </motion.button>
+              
+              {/* Form submission note */}
+              <p className="text-xs text-center" style={{ color: 'var(--text-secondary)' }}>
+                Your information is secure and will only be used to respond to your inquiry.
+              </p>
             </form>
           </motion.div>
         </div>
