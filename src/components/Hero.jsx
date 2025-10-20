@@ -221,7 +221,7 @@ const Hero = () => {
                 whileHover={{ scale: 1.01 }}
               >
                 <img
-                  src="/images/portfolio-image.png"
+                  src="/images/portfolio.png"
                   alt="Biniyam Agegnehu"
                   className="w-full h-full object-cover"
                 />
