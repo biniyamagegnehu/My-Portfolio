@@ -9,7 +9,7 @@ const Hero = () => {
   const socialLinks = [
     { name: 'GitHub', url: 'https://github.com/biniyamagegnehu', icon: 'fab fa-github' },
     { name: 'Instagram', url: 'https://www.instagram.com/bini_yam19', icon: 'fab fa-instagram' },
-    { name: 'Telegram', url: 'https://t.me/@Bbini19', icon: 'fab fa-telegram' },
+    { name: 'Telegram', url: 'https://t.me/Bbini19', icon: 'fab fa-telegram' },
     { name: 'LinkedIn', url: 'https://www.linkedin.com/in/biniyamagegnehu/', icon: 'fab fa-linkedin' }
   ]
 
